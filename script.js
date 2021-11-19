@@ -11,15 +11,19 @@ var pizza1= pizzaOven("deep dish", "traditional", ["mozzarella"],["pepperoni", "
 var pizza2= pizzaOven("thin", "pesto", ["mozzarella","fontina"], ["chicken","mushrooms"])
 var pizza3= pizzaOven("stuffed", "garlic", ["cheddar", "mozzarella"],["bacon", "chicken"])
 
-// console.log(pizza1)
-// console.log(pizza2)
-// console.log(pizza3)
-
-var arrpizza=["pizza1","pizza2","pizza3"]
-
-var randoPizza = arrpizza[randPizza()]
-
-function randPizza(){
-    return Math.floor(Math.random()*3)
+function randoPizza(){
+    var crustTypes= ["deep dish","thin","stuffed"]
+    var sauceTypes= ["traditional","pesto","garlic"]
+    var cheeses= ["mozzarella",]
+    var toppings=[["bacon","chicken"],["chicken","mushrooms"]]
+    
+    var pizza = {};
+    pizza.crustType= crustTypes[Math.floor(Math.random()*crustTypes.length)];
+    pizza.sauceType= sauceTypes[Math.floor(Math.random()*sauceTypes.length)]
+    pizza.cheeses= cheeses[Math.floor(Math.random()*cheeses.length)]
+    pizza.toppings= toppings[Math.floor(Math.random()*toppings.length)]
+    return pizza 
 }
-console.log(randoPizza)
+
+var newPizza = randoPizza()
+console.log(newPizza)
